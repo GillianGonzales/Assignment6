@@ -8,6 +8,13 @@
 -- This program will find PI
 -----------------------------------------------------------------------------------------
 
+-- Making Varaibles
+local n
+local loop
+local one 
+local answer
+
+
 -- Changing Background
 display.setDefault("background", 1, 1, 1 )
 
@@ -24,3 +31,12 @@ ninput.id = "user input"
 local button = display.newImageRect("./assets/sprites/Button.png", 406, 157)
 button.x = display.contentCenterX
 button.y = display.contentCenterY + 200
+button.id = "button"
+
+-- Adding Functions
+local function calculatePi( event )
+	-- This Function will find PI
+	ninput = tonumber(n)
+
+end
+

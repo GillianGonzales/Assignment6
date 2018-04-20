@@ -23,6 +23,10 @@ local instruction = display.newText("Put in a Number", display.contentCenterX, d
 instruction:setFillColor( 0, 0, 0)
 instruction.id = "instructions"
 
+local answerText = display.newText("=", display.contentCenterX, display.contentCenterY + 400 , native.systemFont, 75 )
+answerText:setFillColor( 0, 0, 0)
+answerText.id = "Answer Text"
+
 -- Adding Textfields
 local ninput = native.newTextField(display.contentCenterX, display.contentCenterY, 800, 150)
 ninput.id = "user input"
@@ -36,7 +40,12 @@ button.id = "button"
 -- Adding Functions
 local function calculatePi( event )
 	-- This Function will find PI
-	ninput = tonumber(n)
+	ninput = n
+	answerText.text = answer
+
+	print(n)
+
 
 end
 
+button:addEventListener("touch", calculatePi)

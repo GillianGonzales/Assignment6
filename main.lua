@@ -40,11 +40,14 @@ button.id = "button"
 -- Adding Functions
 local function calculatePi( event )
 	-- This Function will find PI
-	ninput = n
+	n = ninput.text
 	answerText.text = answer
 
-	print(n)
-
+	if string.match(n, "%.") then
+		print("not a number")
+	elseif tonumber(n) ~= nil then
+		print("its a number")
+	end
 
 end
 

@@ -13,6 +13,7 @@ local n
 local loop
 local one 
 local answer
+local codeAnswer
 
 
 -- Changing Background
@@ -44,11 +45,20 @@ local function calculatePi( event )
 	answerText.text = answer
 
 	if string.match(n, "%.") then
-		print("not a number")
-	elseif tonumber(n) ~= nil then
-		print("its a number")
+		answer = "Invaild Answer"
+	elseif tonumber(n) == nil then
+		answer = "Invaild Answer"
+	elseif tonumber(n) == 0 then
+		codeAnswer = ((-1)^n)/(2*n+1)
+	elseif tonumber(n) > 0 then
+		for loop = 1,n do
+			codeAnswer = ((-1)^n)/(2*n+1)
+			n = n + 1
+		end
 	end
-
+	codeAnswer = tonumber(codeAnswer) * 4
+	answer = codeAnswer
+	print(answer)
 end
 
 button:addEventListener("touch", calculatePi)

@@ -24,7 +24,7 @@ local instruction = display.newText("Put in a Number", display.contentCenterX, d
 instruction:setFillColor( 0, 0, 0)
 instruction.id = "instructions"
 
-local answerText = display.newText("=", display.contentCenterX, display.contentCenterY + 400 , native.systemFont, 75 )
+local answerText = display.newText("", display.contentCenterX, display.contentCenterY + 400 , native.systemFont, 75 )
 answerText:setFillColor( 0, 0, 0)
 answerText.id = "Answer Text"
 
@@ -45,8 +45,9 @@ local function calculatePi( event )
 
 	if string.match(n, "%.") then
 		answerText.text = "".."Invaild Answer"..""
-		print("Invaild Answer")
 	elseif tonumber(n) == nil then
+		answerText.text = "".."Invaild Answer"..""
+	elseif tonumber(n) < 0 then
 		answerText.text = "".."Invaild Answer"..""
 	elseif tonumber(n) == 0 then
 		for loop = 1,1  do

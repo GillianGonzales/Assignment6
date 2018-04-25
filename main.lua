@@ -42,23 +42,25 @@ button.id = "button"
 local function calculatePi( event )
 	-- This Function will find PI
 	n = ninput.text
-	answerText.text = answer
 
 	if string.match(n, "%.") then
-		answer = "Invaild Answer"
+		answerText.text = "".."Invaild Answer"..""
+		print("Invaild Answer")
 	elseif tonumber(n) == nil then
-		answer = "Invaild Answer"
+		answerText.text = "".."Invaild Answer"..""
 	elseif tonumber(n) == 0 then
-		codeAnswer = ((-1)^n)/(2*n+1)
+		for loop = 1,1  do
+			answer = ((-1)^n)/(2*n+1) 
+		end	
+		answer = tonumber(answer) * 4
+		answerText.text = ""..answer..""
 	elseif tonumber(n) > 0 then
-		for loop = 1,n do
-			codeAnswer = ((-1)^n)/(2*n+1)
-			n = n + 1
+		for loop = 1,n  do
+			answer = ((-1)^n)/(2*n+1) 
 		end
+		answer = tonumber(answer) * 4
+		answerText.text = ""..answer..""
 	end
-	codeAnswer = tonumber(codeAnswer) * 4
-	answer = codeAnswer
-	print(answer)
 end
 
-button:addEventListener("touch", calculatePi)
+button:addEventListener( "touch", calculatePi)

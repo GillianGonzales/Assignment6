@@ -13,8 +13,7 @@ local n
 local loop
 local one 
 local answer
-local codeAnswer
-
+local nloop
 
 -- Changing Background
 display.setDefault("background", 1, 1, 1 )
@@ -41,25 +40,29 @@ button.id = "button"
 -- Adding Functions
 local function calculatePi( event )
 	-- This Function will find PI
-	n = ninput.text
+	nloop = tonumber(ninput.text)
+	n = 0
+	answer = tonumber(answer)
+	answer = 1
+	one = 1
 
-	if string.match(n, "%.") then
+	if string.match(nloop, "%.") then
 		answerText.text = "".."Invaild Answer"..""
-	elseif tonumber(n) == nil then
+	elseif nloop == nil then
 		answerText.text = "".."Invaild Answer"..""
-	elseif tonumber(n) < 0 then
+	elseif nloop < 0 then
 		answerText.text = "".."Invaild Answer"..""
-	elseif tonumber(n) == 0 then
-		for loop = 1,1  do
-			answer = ((-1)^n)/(2*n+1) 
-		end	
-		answer = tonumber(answer) * 4
+	elseif nloop == 0 then
+		answer = ((-1)^n)/(2*n+1)
+		answer = answer * 4
 		answerText.text = ""..answer..""
-	elseif tonumber(n) > 0 then
-		for loop = 1,n  do
-			answer = ((-1)^n)/(2*n+1) 
+	elseif nloop > 0 then
+		for loop = one,nloop  do
+			n = n + 1
+			answer = answer + ((-1)^n)/(2*n+1)
 		end
-		answer = tonumber(answer) * 4
+		print(answer)
+		answer = answer * 4
 		answerText.text = ""..answer..""
 	end
 end
